@@ -46,7 +46,7 @@ export default function AdminMovies() {
     setEditMovie(null);
   };
 
-  const filtered = movies.filter(m =>
+  const filtered = (movies || []).filter(m =>
     m.title.toLowerCase().includes(search.toLowerCase())
   );
 
