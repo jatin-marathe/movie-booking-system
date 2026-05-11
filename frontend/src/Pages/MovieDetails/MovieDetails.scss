@@ -1,0 +1,293 @@
+@use '../../styles/variables' as *;
+
+.movie-details {
+  min-height: 100vh;
+  padding-bottom: 80px;
+
+  &__banner {
+    position: relative;
+    height: 520px;
+    overflow: hidden;
+
+    @media (max-width: $tablet) { height: auto; }
+
+    &-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      filter: brightness(0.35);
+    }
+
+    &-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba($bg-primary,0.9) 40%, transparent 100%),
+                  linear-gradient(to top, $bg-primary 0%, transparent 40%);
+    }
+
+    &-content {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      display: flex;
+      align-items: flex-end;
+      gap: 32px;
+      padding-bottom: 40px;
+      padding-top: 100px;
+
+      @media (max-width: $tablet) {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        left: auto;
+        transform: none;
+        padding: 100px 16px 32px;
+      }
+    }
+  }
+
+  &__poster {
+    width: 160px;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-card;
+    flex-shrink: 0;
+    border: 2px solid $border;
+
+    @media (max-width: $tablet) { width: 120px; }
+  }
+
+  &__info { flex: 1; }
+
+  &__genres {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+    @media (max-width: $tablet) { justify-content: center; }
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    letter-spacing: 0.04em;
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: $text-secondary;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    @media (max-width: $tablet) { justify-content: center; }
+  }
+
+  &__director {
+    font-size: 0.875rem;
+    color: $text-muted;
+    strong { color: $text-secondary; }
+  }
+
+  &__body { padding-top: 48px; }
+
+  &__layout {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 40px;
+    align-items: start;
+
+    @media (max-width: $desktop) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__left {}
+
+  &__section {
+    margin-bottom: 40px;
+
+    h2 {
+      font-family: $font-display;
+      font-size: 1.4rem;
+      letter-spacing: 0.06em;
+      color: $text-primary;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid $border;
+    }
+
+    p {
+      color: $text-secondary;
+      line-height: 1.75;
+      font-size: 0.95rem;
+    }
+  }
+
+  &__cast {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+  }
+
+  &__error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    gap: 16px;
+    text-align: center;
+
+    span { font-size: 3rem; }
+    h2 { font-size: 1.5rem; color: $text-secondary; }
+  }
+}
+
+.genre-tag {
+  background: rgba($accent, 0.12);
+  border: 1px solid rgba($accent, 0.25);
+  color: $accent;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.04em;
+}
+
+.cast-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: $bg-card;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+  padding: 12px;
+  transition: border-color $transition-fast;
+
+  &:hover { border-color: $border-hover; }
+
+  &__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, $accent, $gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  &__name { font-size: 0.875rem; font-weight: 600; color: $text-primary; }
+  &__role { font-size: 0.75rem; color: $text-muted; margin-top: 2px; }
+}
+
+// ─── Booking Panel ────────────────────────────────────────────────
+.booking-panel {
+  padding: 28px;
+  position: sticky;
+  top: 100px;
+
+  @media (max-width: $desktop) {
+    position: static;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: 1.6rem;
+    letter-spacing: 0.06em;
+    margin-bottom: 24px;
+    color: $text-primary;
+    padding-bottom: 16px;
+    border-bottom: 1px solid $border;
+  }
+
+  &__field {
+    margin-bottom: 24px;
+
+    label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: $text-muted;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $bg-secondary;
+    border: 1px solid $border;
+    border-radius: $radius-md;
+    padding: 12px 16px;
+    text-align: left;
+    transition: all $transition-fast;
+    cursor: pointer;
+
+    &:hover { border-color: $border-hover; }
+    &.active { border-color: $accent; background: rgba($accent, 0.08); }
+
+    .option-name { font-size: 0.875rem; font-weight: 600; color: $text-primary; }
+    .option-sub  { font-size: 0.75rem; color: $text-muted; }
+  }
+
+  &__dates {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  &__times {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  &__cta {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+    margin-bottom: 14px;
+  }
+
+  &__note {
+    font-size: 0.8rem;
+    color: $text-muted;
+    text-align: center;
+    strong { color: $gold; }
+  }
+}
+
+.date-btn, .time-btn {
+  background: $bg-secondary;
+  border: 1px solid $border;
+  color: $text-secondary;
+  font-family: $font-body;
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 7px 13px;
+  border-radius: $radius-sm;
+  transition: all $transition-fast;
+  cursor: pointer;
+
+  &:hover { border-color: $border-hover; color: $text-primary; }
+  &.active { background: $accent; border-color: $accent; color: #fff; }
+}

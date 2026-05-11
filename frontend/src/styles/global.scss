@@ -1,0 +1,219 @@
+@use './variables' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: $font-body;
+    background-color: $bg-primary;
+    color: $text-primary;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-family: $font-body;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: $bg-secondary;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $text-muted;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: $accent;
+}
+
+// ─── Utility Classes ──────────────────────────────────────────────
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+
+    @media (max-width: $tablet) {
+        padding: 0 16px;
+    }
+}
+
+.glass-card {
+    background: $bg-glass;
+    border: 1px solid $border;
+    border-radius: $radius-lg;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.btn-primary {
+    background: $accent;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 12px 28px;
+    border-radius: $radius-md;
+    transition: all $transition-base;
+    letter-spacing: 0.02em;
+
+    &:hover {
+        background: $accent-hover;
+        transform: translateY(-2px);
+        box-shadow: $shadow-accent;
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none;
+    }
+}
+
+.btn-outline {
+    background: transparent;
+    color: $text-primary;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 11px 28px;
+    border-radius: $radius-md;
+    border: 1px solid $border-hover;
+    transition: all $transition-base;
+
+    &:hover {
+        border-color: $accent;
+        color: $accent;
+        background: rgba($accent, 0.06);
+    }
+}
+
+.btn-ghost {
+    background: $bg-glass;
+    color: $text-primary;
+    font-weight: 500;
+    padding: 10px 22px;
+    border-radius: $radius-md;
+    border: 1px solid $border;
+    transition: all $transition-base;
+
+    &:hover {
+        background: $bg-glass-hover;
+        border-color: $border-hover;
+    }
+}
+
+// ─── Loader ───────────────────────────────────────────────────────
+.page-loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: $bg-primary;
+}
+
+// ─── Section Heading ─────────────────────────────────────────────
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 32px;
+
+    h2 {
+        font-family: $font-display;
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        letter-spacing: 0.04em;
+        color: $text-primary;
+    }
+
+    .accent-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: $accent;
+        flex-shrink: 0;
+    }
+
+    .line {
+        flex: 1;
+        height: 1px;
+        background: $border;
+    }
+}
+
+// ─── Animations ──────────────────────────────────────────────────
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -400px 0;
+    }
+
+    100% {
+        background-position: 400px 0;
+    }
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 8px $accent-glow;
+    }
+
+    50% {
+        box-shadow: 0 0 24px $accent-glow;
+    }
+}

@@ -1,0 +1,116 @@
+@use '../../styles/variables' as *;
+
+.movie-card {
+  cursor: pointer;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  background: $bg-card;
+  border: 1px solid $border;
+  transition: all $transition-base;
+  animation: fadeUp 0.5s ease both;
+
+  &:hover {
+    border-color: $border-hover;
+    transform: translateY(-6px);
+    box-shadow: $shadow-card;
+
+    .movie-card__overlay { opacity: 1; }
+    .movie-card__poster img { transform: scale(1.06); }
+  }
+
+  &__poster {
+    position: relative;
+    aspect-ratio: 2/3;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform $transition-slow;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity $transition-base;
+  }
+
+  &__book-btn {
+    background: $accent;
+    color: #fff;
+    font-family: $font-body;
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 10px 24px;
+    border-radius: $radius-md;
+    letter-spacing: 0.04em;
+    transition: all $transition-fast;
+
+    &:hover {
+      background: $accent-hover;
+      transform: scale(1.05);
+    }
+  }
+
+  &__badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.04em;
+
+    &.badge--trending {
+      background: rgba($accent, 0.9);
+      color: #fff;
+      backdrop-filter: blur(4px);
+    }
+  }
+
+  &__info {
+    padding: 14px 16px 16px;
+  }
+
+  &__title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: $text-primary;
+    margin-bottom: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    color: $text-muted;
+    margin-bottom: 8px;
+  }
+
+  &__genre { color: $text-secondary; font-weight: 500; }
+  &__dot { color: $text-muted; }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.85rem;
+
+    .star { color: $gold; }
+    .score { font-weight: 700; color: $gold; }
+    .out  { color: $text-muted; font-size: 0.75rem; }
+  }
+}

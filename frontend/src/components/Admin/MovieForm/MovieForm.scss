@@ -1,0 +1,133 @@
+@use '../../../styles/adminVariables' as *;
+
+.movie-form-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 24px 16px;
+  overflow-y: auto;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.movie-form-modal {
+  background: $admin-card;
+  border: 1px solid $admin-border;
+  border-radius: $radius-xl;
+  width: 100%;
+  max-width: 700px;
+  animation: slideUp 0.3s ease;
+  margin: auto;
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 28px;
+    border-bottom: 1px solid $admin-border;
+
+    h2 {
+      font-family: $admin-font-display;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: $admin-text;
+    }
+  }
+
+  &__close {
+    background: $admin-glass;
+    border: 1px solid $admin-border;
+    color: $admin-text-muted;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    transition: all $transition;
+
+    &:hover { background: $admin-glass-hover; color: $admin-text; }
+  }
+
+  &__preview {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 28px;
+    background: $admin-glass;
+    border-bottom: 1px solid $admin-border;
+
+    img {
+      width: 44px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid $admin-border;
+    }
+
+    .preview-title { font-size: 0.9rem; font-weight: 600; color: $admin-text; }
+    .preview-meta  { font-size: 0.75rem; color: $admin-text-muted; margin-top: 3px; }
+  }
+
+  &__form {
+    padding: 24px 28px;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
+  &__section-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: $admin-text-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 14px;
+    margin-top: 4px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid $admin-border;
+  }
+}
+
+.theater-row {
+  background: $admin-surface;
+  border: 1px solid $admin-border;
+  border-radius: $radius-md;
+  padding: 16px;
+  margin-bottom: 12px;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: $admin-text-sub;
+  }
+
+  &__remove {
+    background: none;
+    border: none;
+    color: $admin-danger;
+    font-size: 0.75rem;
+    cursor: pointer;
+    font-family: $admin-font-body;
+    &:hover { text-decoration: underline; }
+  }
+}
+
+.theater-add-btn {
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 8px;
+  font-size: 0.8rem;
+}

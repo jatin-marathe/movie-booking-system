@@ -1,0 +1,59 @@
+@use '../../../styles/adminVariables' as *;
+
+.admin-bookings {
+  &__table-wrap { overflow-x: auto; }
+  &__loading { color: $admin-text-muted; font-size: 0.875rem; padding: 40px 0; }
+  &__empty {
+    text-align: center; padding: 60px;
+    span { font-size: 2.5rem; display: block; margin-bottom: 12px; }
+    p { color: $admin-text-muted; }
+  }
+}
+
+.booking-id {
+  font-family: $admin-font-mono;
+  font-size: 0.75rem;
+  color: $admin-accent;
+}
+
+.user-name  { font-size: 0.875rem; font-weight: 600; color: $admin-text; }
+.user-email { font-size: 0.72rem; color: $admin-text-muted; margin-top: 2px; }
+
+.movie-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  &__img {
+    width: 28px;
+    height: 38px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid $admin-border;
+    flex-shrink: 0;
+  }
+
+  span { font-size: 0.875rem; font-weight: 500; }
+}
+
+.seats-cell {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.seat-chip {
+  font-family: $admin-font-mono;
+  font-size: 0.65rem;
+  background: rgba($admin-accent, 0.1);
+  border: 1px solid rgba($admin-accent, 0.2);
+  color: $admin-accent;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.amount-cell {
+  font-family: $admin-font-mono;
+  font-weight: 600;
+  color: $admin-gold;
+}

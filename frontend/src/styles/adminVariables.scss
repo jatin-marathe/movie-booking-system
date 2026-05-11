@@ -1,0 +1,41 @@
+// ─── Admin Design Tokens ──────────────────────────────────────────
+$admin-bg: #080b12;
+$admin-surface: #0d1117;
+$admin-card: #111827;
+$admin-glass: rgba(255, 255, 255, 0.04);
+$admin-glass-hover: rgba(255, 255, 255, 0.07);
+
+$admin-accent: #6366f1; // indigo
+$admin-accent-hover: #4f46e5;
+$admin-accent-glow: rgba(99, 102, 241, 0.3);
+
+$admin-gold: #f59e0b;
+$admin-green: #10b981;
+$admin-green-dim: rgba(16, 185, 129, 0.12);
+$admin-danger: #ef4444;
+$admin-danger-dim: rgba(239, 68, 68, 0.12);
+$admin-blue: #3b82f6;
+$admin-purple: #8b5cf6;
+
+$admin-text: #f1f5f9;
+$admin-text-sub: #94a3b8;
+$admin-text-muted: #475569;
+
+$admin-border: rgba(255, 255, 255, 0.07);
+$admin-border-hover: rgba(255, 255, 255, 0.13);
+
+$admin-font-display: 'Space Grotesk', 'DM Sans', sans-serif;
+$admin-font-body: 'DM Sans', 'Inter', sans-serif;
+$admin-font-mono: 'JetBrains Mono', monospace;
+
+$sidebar-width: 240px;
+
+$radius-sm: 6px;
+$radius-md: 10px;
+$radius-lg: 16px;
+$radius-xl: 22px;
+
+$shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+$shadow-accent: 0 0 20px $admin-accent-glow;
+
+$transition: 0.2s ease;

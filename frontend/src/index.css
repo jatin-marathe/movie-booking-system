@@ -1,0 +1,27 @@
+:root {
+  --background-color: linear-gradient(27deg, #077b3a, #102a1c, #020700, #077b3a);
+  --text-black-primary: #101012;
+  --text-black-secondary: #5A5A5D;
+  --text-black-ternery: #BEBEBF;
+
+  --white: #FFFFFF;
+
+  --green-primary: #1DE782;
+}
+
+body {
+  all: unset;
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #1de782;
+}
+
+.ticket,
+.error {
+  display: flex;
+  justify-content: center;
+  margin-top: 50vh;
+}

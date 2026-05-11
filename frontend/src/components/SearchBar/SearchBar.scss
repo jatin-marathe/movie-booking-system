@@ -1,0 +1,79 @@
+@use '../../styles/variables' as *;
+
+.search-bar {
+  margin-bottom: 40px;
+
+  &__input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: $bg-card;
+    border: 1px solid $border;
+    border-radius: $radius-xl;
+    padding: 4px 16px;
+    gap: 12px;
+    transition: border-color $transition-base;
+    max-width: 560px;
+
+    &:focus-within {
+      border-color: $accent;
+      box-shadow: 0 0 0 3px rgba($accent, 0.1);
+    }
+  }
+
+  &__icon { font-size: 1rem; flex-shrink: 0; }
+
+  &__input {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    font-family: $font-body;
+    font-size: 0.95rem;
+    color: $text-primary;
+    padding: 10px 0;
+
+    &::placeholder { color: $text-muted; }
+  }
+
+  &__clear {
+    background: none;
+    color: $text-muted;
+    font-size: 0.9rem;
+    padding: 4px 8px;
+    border-radius: $radius-sm;
+    transition: color $transition-fast;
+    &:hover { color: $text-primary; }
+  }
+
+  &__genres {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+
+  &__genre-btn {
+    background: $bg-card;
+    border: 1px solid $border;
+    color: $text-secondary;
+    font-family: $font-body;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 6px 16px;
+    border-radius: 20px;
+    transition: all $transition-fast;
+    letter-spacing: 0.02em;
+
+    &:hover {
+      border-color: $border-hover;
+      color: $text-primary;
+    }
+
+    &.active {
+      background: $accent;
+      border-color: $accent;
+      color: #fff;
+    }
+  }
+}

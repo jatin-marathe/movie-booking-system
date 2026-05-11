@@ -1,0 +1,74 @@
+@use '../../styles/variables' as *;
+@use 'sass:color';
+
+.skeleton {
+  // ✅ replaced lighten($bg-card, 5%) with color.adjust()
+  background: linear-gradient(90deg, $bg-card 25%, color.adjust($bg-card, $lightness: 5%) 50%, $bg-card 75%);
+  background-size: 400px 100%;
+  animation: shimmer 1.4s infinite linear;
+  border-radius: $radius-sm;
+
+  &--poster {
+    aspect-ratio: 2/3;
+    width: 100%;
+    border-radius: $radius-lg $radius-lg 0 0;
+  }
+
+  &--banner {
+    height: 400px;
+    width: 100%;
+    border-radius: 0;
+  }
+
+  &--title {
+    height: 16px;
+    width: 80%;
+    margin-bottom: 8px;
+  }
+
+  &--title-lg {
+    height: 40px;
+    width: 60%;
+    margin-bottom: 16px;
+  }
+
+  &--meta {
+    height: 12px;
+    width: 60%;
+    margin-bottom: 8px;
+  }
+
+  &--rating {
+    height: 14px;
+    width: 40%;
+  }
+
+  &--text {
+    height: 14px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  &--text-short {
+    height: 14px;
+    width: 50%;
+  }
+}
+
+.skeleton-card {
+  border-radius: $radius-lg;
+  overflow: hidden;
+  background: $bg-card;
+  border: 1px solid $border;
+
+  &__info {
+    padding: 14px 16px 16px;
+  }
+}
+
+.skeleton-details {
+  &__content {
+    padding: 32px;
+    max-width: 600px;
+  }
+}
