@@ -15,7 +15,7 @@ export default function AdminMovies() {
   const load = async () => {
     try {
       const { data } = await adminApi.get('/movies');
-      setMovies(data.movies);
+      setMovies(res.data.movies);
     } catch { toast.error('Failed to load movies'); }
     finally { setLoading(false); }
   };
@@ -34,7 +34,7 @@ export default function AdminMovies() {
   };
 
   const handleEdit = (movie) => { setEditMovie(movie); setShowForm(true); };
-  const handleAdd  = ()      => { setEditMovie(null);  setShowForm(true); };
+  const handleAdd = () => { setEditMovie(null); setShowForm(true); };
 
   const handleFormSuccess = (movie, isEdit) => {
     if (isEdit) {

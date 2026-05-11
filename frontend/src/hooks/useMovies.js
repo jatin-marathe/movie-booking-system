@@ -11,7 +11,7 @@ export function useMovies(params = {}) {
         setError(null);
         try {
             const { data } = await api.get('/movies', { params: { ...params, ...overrides } });
-            setMovies(data.movies);
+            setMovies(res.data.movies);
         } catch (err) {
             setError(err.response?.data?.message || 'Failed to load movies');
         } finally {

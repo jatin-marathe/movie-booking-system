@@ -41,10 +41,10 @@ export default function Dashboard() {
 
       {/* Stat Cards */}
       <div className="dashboard__stats">
-        <StatCard icon="🎬" label="Total Movies"   value={loading ? '—' : stats?.totalMovies}   color="indigo" />
-        <StatCard icon="🎟" label="Total Bookings" value={loading ? '—' : stats?.totalBookings} color="green"  sub="confirmed" />
-        <StatCard icon="👥" label="Registered Users" value={loading ? '—' : stats?.totalUsers}  color="blue"  />
-        <StatCard icon="💰" label="Total Revenue"  value={loading ? '—' : `₹${stats?.totalRevenue?.toLocaleString()}`} color="gold" />
+        <StatCard icon="🎬" label="Total Movies" value={loading ? '—' : stats?.totalMovies} color="indigo" />
+        <StatCard icon="🎟" label="Total Bookings" value={loading ? '—' : stats?.totalBookings} color="green" sub="confirmed" />
+        <StatCard icon="👥" label="Registered Users" value={loading ? '—' : stats?.totalUsers} color="blue" />
+        <StatCard icon="💰" label="Total Revenue" value={loading ? '—' : `₹${stats?.totalRevenue?.toLocaleString()}`} color="gold" />
       </div>
 
       <div className="dashboard__grid">
